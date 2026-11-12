@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anonymous Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="/">Anonymous Chat<span>✦</span></a>
+      <span class="anonymous-label">● Anonymous chat</span>
+    </header>
+
+    <section id="homeScreen" class="panel">
+      <div class="moon">☾</div>
+      <p class="eyebrow">GOOD CONVERSATIONS START HERE</p>
+      <h1>Find your kind<br>of conversation.</h1>
+      <p class="intro">Meet someone new through the things you both love. No names, no profiles, just a conversation.</p>
+
+      <h2 class="section-heading">Choose your interests</h2>
+      <p class="helper">Select one or more topics.</p>
+
+      <div class="interest-list">
+        <label class="interest"><input type="checkbox" value="Books"><span>📚 Books</span></label>
+        <label class="interest"><input type="checkbox" value="Music"><span>🎵 Music</span></label>
+        <label class="interest"><input type="checkbox" value="Movies"><span>🎬 Movies</span></label>
+        <label class="interest"><input type="checkbox" value="Gaming"><span>🎮 Gaming</span></label>
+        <label class="interest"><input type="checkbox" value="Travel"><span>✈️ Travel</span></label>
+        <label class="interest"><input type="checkbox" value="Food"><span>🍕 Food</span></label>
+        <label class="interest"><input type="checkbox" value="Art"><span>🎨 Art</span></label>
+        <label class="interest"><input type="checkbox" value="Technology"><span>💻 Technology</span></label>
+      </div>
+
+      <p id="homeError" class="error" aria-live="polite"></p>
+      <button id="findButton" class="primary-button">Find a conversation <span>→</span></button>
+      <p class="privacy-note">Your chat identity is anonymous. Be respectful and don't share personal information.</p>
+    </section>
+
+    <section id="waitingScreen" class="panel hidden">
+      <div class="loader"></div>
+      <p class="eyebrow">LOOKING</p>
+      <h1>Finding your person...</h1>
+      <p class="intro">We're looking for someone who shares your interests. Keep this page open.</p>
+      <div id="waitingInterests" class="chosen-interests"></div>
+      
+      <button id="cancelButton" class="secondary-button">Cancel search</button>
+    </section>
+
+    <section id="chatScreen" class="chat-panel hidden">
+      <div class="chat-header">
+        <div>
+          <p class="eyebrow">YOU'RE CONNECTED</p>
+          <h2>Stranger <span class="online-dot">●</span></h2>
+          <p id="sharedTopics" class="helper"></p>
+        </div>
+        <button id="endButton" class="end-button">End chat</button>
+      </div>
+      <div id="messages" class="messages">
+        <div class="system-message">You are now connected. Say hello!</div>
+      </div>
+      <form id="messageForm" class="message-form">
+        <input id="messageInput" type="text" maxlength="500" placeholder="Type a message..." autocomplete="off">
+        <button type="submit" aria-label="Send message">➤</button>
+      </form>
+      <p class="privacy-note chat-note">Stay anonymous. Never share passwords, addresses or other private information.</p>
+    </section>
+
+    <section id="endedScreen" class="panel hidden">
+      <div class="moon">✦</div>
+      <p class="eyebrow">CONVERSATION ENDED</p>
+      <h1>That was a nice chat.</h1>
+      <p class="intro">You can meet someone new whenever you're ready.</p>
+      <button id="againButton" class="primary-button">Find another match <span>→</span></button>
+      <button id="homeButton" class="text-button">Back to interests</button>
+    </section>
+
+    <footer>Anonymous Chat · A simple chat web application</footer>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
